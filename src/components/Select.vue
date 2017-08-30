@@ -591,9 +591,11 @@
      * attach any event listeners.
      */
     created() {
-			this.mutableValue = this.value
-      this.mutableOptions = this.options.slice(0)
-			this.mutableLoading = this.loading
+      this.mutableValue = this.value
+      if (this.options !== null && this.options !== undefined) {
+        this.mutableOptions = this.options.slice(0)
+      }
+      this.mutableLoading = this.loading
 
       this.$on('option:created', this.maybePushTag)
     },
